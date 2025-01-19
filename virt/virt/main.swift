@@ -35,6 +35,12 @@ let config = VZVirtualMachineConfiguration()
 config.cpuCount = 2
 config.memorySize = 4 * 1024 * 1024 * 1024
 
+let platform = VZGenericPlatformConfiguration();
+config.platform = platform
+if VZGenericPlatformConfiguration.isNestedVirtualizationSupported {
+    platform.isNestedVirtualizationEnabled = true
+}
+
 do {
     let vda = try VZDiskImageStorageDeviceAttachment(url: URL(fileURLWithPath: "vda.img"), readOnly: false)
     let vdb = try VZDiskImageStorageDeviceAttachment(url: URL(fileURLWithPath: "vdb.img"), readOnly: false)

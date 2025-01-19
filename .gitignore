@@ -7,3 +7,4 @@ initrd
 *.tar.gz
 /linux
 .virt.mac
+.DS_Store
